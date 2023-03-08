@@ -10,6 +10,7 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         offset = transform.position - PlayerPawn.transform.position;
     }
 
