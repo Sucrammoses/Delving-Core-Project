@@ -9,6 +9,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 input;
     public LayerMask SolidObjectsLayer;
     public GameObject player;
+    private Animator Animation;
+    private void Awake()
+    {
+        Animation = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -16,16 +21,24 @@ public class PlayerMovement : MonoBehaviour
         {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
-            if(input!= Vector2.zero)
+            Animation.SetFloat("MoveX", input.x);
+            Animation.SetFloat("MoveY", input.y);
+
+            if (input!= Vector2.zero)
             {
                 var TargetPos = transform.position;
                 TargetPos.x += input.x;
                 TargetPos.y += input.y;
 
+                Animation.SetFloat("MoveX", input.x);
+                Animation.SetFloat("MoveY", input.y);
+
                 if (IsWalkable(TargetPos))
                 StartCoroutine(Move(TargetPos));
             }
         }
+
+        Animation.SetBool("IsWalking", IsMoving);
     }
     IEnumerator Move(Vector3 TargetPos)
     {
