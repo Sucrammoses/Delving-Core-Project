@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private bool IsMoving;
     private Vector2 input;
     public LayerMask SolidObjectsLayer;
+    public GameObject player;
 
     private void Update()
     {
