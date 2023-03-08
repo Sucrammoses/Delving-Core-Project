@@ -21,8 +21,6 @@ public class PlayerMovement : MonoBehaviour
         {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
-            Animation.SetFloat("MoveX", input.x);
-            Animation.SetFloat("MoveY", input.y);
 
             if (input!= Vector2.zero)
             {
