@@ -4,33 +4,29 @@ using UnityEngine;
 
 public class DetectionZone : MonoBehaviour
 {
-    public bool EnemyIsMoving=false;
 
     public float speed = 1f;
+    public float MinimumDistance = 1;
     private Transform EnemyTarget;
     private Vector2 direct;
     private Animator Animation;
+    private bool EnemyIsMoving;
 
     private void Update()
     {
         if (EnemyTarget != null)
         {
-            EnemyIsMoving = true;
             float EnemyMovement = speed * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, EnemyTarget.position, EnemyMovement);
-        }
-        else
-        {
-            EnemyIsMoving = false;
-        }
-
-        if (EnemyIsMoving == false)
-        {
-            Animation.SetFloat("MoveX", 1);
-        }
-        else
-        {
-
+            if (Vector2.Distance(transform.position, EnemyTarget.position) > MinimumDistance)
+                //Checks to see if enemy is at a certain distance before stopping.
+            {
+                transform.position = Vector2.MoveTowards(transform.position, EnemyTarget.position, EnemyMovement);
+                //Logic that makes the enemy move towards the player
+            }
+            else
+            {
+                //Attack Logic will go here
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -38,16 +34,12 @@ public class DetectionZone : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             EnemyTarget = other.transform;
+            //Logic that checks for another game Object that carries the tag of 'player'. Once condition is met the Transform variable is set to the other object's transform.
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            EnemyTarget = null;
-        }
+        EnemyTarget = null;
     }
-
-
-    }
+}
