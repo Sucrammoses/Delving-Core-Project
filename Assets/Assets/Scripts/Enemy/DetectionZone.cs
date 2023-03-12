@@ -11,6 +11,13 @@ public class DetectionZone : MonoBehaviour
     private Vector2 direct;
     private Animator Animation;
     private bool EnemyIsMoving;
+    public float attackDelay;
+    public float passedTime;
+
+    private void Awake()
+    {
+        Animation = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -22,11 +29,21 @@ public class DetectionZone : MonoBehaviour
             {
                 transform.position = Vector2.MoveTowards(transform.position, EnemyTarget.position, EnemyMovement);
                 //Logic that makes the enemy move towards the player
+                Animation.SetBool("hasTarget", true);
             }
             else
             {
                 //Attack Logic will go here
+                if(passedTime >= attackDelay)
+                {
+                    passedTime = 0;
+                    Animation.SetBool("inRange", true);
+                }
             }
+        }
+        if(passedTime < attackDelay)
+        {
+            passedTime += Time.deltaTime;
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
