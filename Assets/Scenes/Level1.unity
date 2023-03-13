@@ -657,6 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 280156862}
+  RateofAttack: 10
 --- !u!1 &334873114
 GameObject:
   m_ObjectHideFlags: 0
@@ -19147,6 +19148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  RateofAttack: 2
 --- !u!4 &1864591029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2697535806139278527, guid: 1e110ef2c53d03549b3cc39966d4b046, type: 3}
