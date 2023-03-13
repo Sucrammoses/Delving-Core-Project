@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3875140844055542028}
   - component: {fileID: 3875140844055542029}
   - component: {fileID: 3875140844055542066}
-  - component: {fileID: 1079984294096712441}
   - component: {fileID: 7435401710378972658}
   - component: {fileID: 6919468175309478436}
+  - component: {fileID: 858366551788621198}
   m_Layer: 0
   m_Name: Goblin1
   m_TagString: Untagged
@@ -110,22 +110,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!58 &1079984294096712441
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3875140844055542067}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2
 --- !u!114 &7435401710378972658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +117,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3875140844055542067}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90bedd54d8306d84db01db224d4f8803, type: 3}
   m_Name: 
@@ -154,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd3f1dcaa67f3b468d96df4d8dffec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   detectionRadius: 5
   attackRadius: 1
   shouldRotate: 1
@@ -162,6 +146,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   direction: {x: 0, y: 0, z: 0}
+--- !u!50 &858366551788621198
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3875140844055542067}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5321097449950282329
 GameObject:
   m_ObjectHideFlags: 0
