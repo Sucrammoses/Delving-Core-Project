@@ -34,11 +34,7 @@ public class DetectionZone : MonoBehaviour
             else
             {
                 //Attack Logic will go here
-                if(passedTime >= attackDelay)
-                {
-                    passedTime = 0;
-                    Animation.SetBool("inRange", true);
-                }
+                
             }
         }
         if(passedTime < attackDelay)
