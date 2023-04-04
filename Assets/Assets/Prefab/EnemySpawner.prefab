@@ -77,8 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 3875140844055542067, guid: 0cfdff84029859d48944b012936dfdf3, type: 3}
+  - {fileID: 9178650162555621561, guid: 5aeabd2a2bc33c14eb2ae51b0c096f6a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   SpawnLocation: {fileID: 4780034051645594777}
-  EnemySpawnerDelete: {fileID: 4780034051645594776}

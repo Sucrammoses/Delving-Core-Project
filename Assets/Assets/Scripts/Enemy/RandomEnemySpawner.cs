@@ -15,7 +15,7 @@ public class RandomEnemySpawner : MonoBehaviour
 
     void Start ()
     {
-        ChanceOfSpawn = Random.Range(1, 20);
+        ChanceOfSpawn = Random.Range(1, 50);
         foreach (GameObject Element in Enemies)
         {
             NumberOfEnemies++;
