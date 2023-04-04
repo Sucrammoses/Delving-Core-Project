@@ -26,11 +26,7 @@ public class PlayerCombat : MonoBehaviour
 
                 animator.SetFloat("MoveX", input.x);
                 animator.SetFloat("MoveY", input.y);
-                if (Time.time >= NextAttack)
-                {
-                    Attack();
-                    NextAttack = Time.time + 1f / RateofAttack;
-                }
+                Attack();
                 if (SwordSwingCheck == false)
                 {
                     SwordSwingCheck = true;
