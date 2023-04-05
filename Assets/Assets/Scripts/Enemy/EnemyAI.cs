@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class EnemyAI : MonoBehaviour
     private Transform target;
     private Rigidbody2D rb;
     private Animator anim;
+    public AudioSource EnemyAudio;
+    public AudioSource AttackAudio;
     private Vector2 movement;
     public Vector3 direction;
 
@@ -51,10 +54,19 @@ public class EnemyAI : MonoBehaviour
             MoveCharacter(movement);
             anim.SetBool("inRange", attackRange);
         }
+        
         if(attackRange)
         {
             rb.velocity = Vector2.zero;
             anim.SetBool("inRange", attackRange);
+        }
+        if (chaseRange == false)
+        {
+            EnemyStart();
+        }
+        if (attackRange == false)
+        {
+            EnemyAttackAudilDelay();
         }
     }
 
@@ -63,5 +75,15 @@ public class EnemyAI : MonoBehaviour
         {
             rb.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
         }
+    }
+
+    private void EnemyStart()
+    {
+        EnemyAudio.Play();
+    }
+    private async void EnemyAttackAudilDelay()
+    {
+        AttackAudio.Play();
+        await Task.Delay(1000);
     }
 }
